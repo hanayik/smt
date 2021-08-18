@@ -110,14 +110,18 @@ target_link_libraries(fitmicrodt docopt ${CMAKE_THREAD_LIBS_INIT})
 add_executable(fitmcmicro src/fitmcmicro.cpp)
 target_link_libraries(fitmcmicro docopt ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(ricedebias src/ricedebias.cpp)
+target_link_libraries(ricedebias docopt ${CMAKE_THREAD_LIBS_INIT})
+
 if(ZLIB_FOUND)
 	target_link_libraries(gaussianfit ${ZLIB_LIBRARIES})
 	target_link_libraries(ricianfit ${ZLIB_LIBRARIES})
 	target_link_libraries(fitmicrodt ${ZLIB_LIBRARIES})
 	target_link_libraries(fitmcmicro ${ZLIB_LIBRARIES})
+  target_link_libraries(ricedebias ${ZLIB_LIBRARIES})
 endif()
 
-install(TARGETS gaussianfit ricianfit fitmicrodt fitmcmicro DESTINATION bin)
+install(TARGETS gaussianfit ricianfit fitmicrodt fitmcmicro ricedebias DESTINATION bin)
 install(FILES README.md LICENSE.md THIRDPARTY.md DESTINATION .)
 
 if(GIT_FOUND)
