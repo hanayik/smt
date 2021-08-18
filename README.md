@@ -29,7 +29,7 @@ Build the software:
 ```bash
 mkdir smt-build
 cd smt-build
-cmake ../smt
+cmake ../
 make
 ```
 
